@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution xmlns="http://tempuri.org/XMLSchema.xsd" Version="2016">
+	<Operator Namespace="IMAGINE" Name="Process">
+		<DisplayName>Spatial Model</DisplayName>
+		<Process>
+			<Namespace></Namespace>
+			<Name></Name>
+			<DisplayName>Spatial Model</DisplayName>
+			<DisplayCategory>General</DisplayCategory>
+			<Description></Description>
+			<Icon>Block.ico</Icon>
+			<ColorCategory>Submodel</ColorCategory>
+			<Keywords></Keywords>
+			<UIProviderNamespace></UIProviderNamespace>
+			<UIProviderName></UIProviderName>
+			<IsUsableInExpression>false</IsUsableInExpression>
+			<Syntax>Model (  )</Syntax>
+			<Operators>Convert To Raster</Operators>
+			<Operators>Create Temp Filename</Operators>
+			<Operators>Image Segmentation FLS</Operators>
+			<Operators>Raster Output</Operators>
+			<Tails>Raster Output</Tails>
+		</Process>
+	</Operator>
+	<Operator Namespace="IMAGINE" Name="ConvertToRaster">
+		<DisplayName>Convert To Raster</DisplayName>
+		<Port Name="Input">
+			<DisplayName>Input</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Port Name="CellWidth">
+			<DisplayName>CellWidth</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="CellHeight">
+			<DisplayName>CellHeight</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="CellUnits">
+			<DisplayName>CellUnits</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="Attribute">
+			<DisplayName>Attribute</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="Raster">
+			<DisplayName>Raster</DisplayName>
+			<Description></Description>
+			<Input>false</Input>
+			<Output>true</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Connections ParentDisplayName="Image Segmentation FLS" ParentPort="OutputImgFileOut" ChildPort="Input"/>
+		<Connections ParentPort="Raster" ChildDisplayName="Raster Output" ChildPort="RasterIn"/>
+		<Parents>Image Segmentation FLS</Parents>
+		<Attribute Name="FlowControl">
+			<Data>
+				<JsonValue>false</JsonValue>
+				<Type Namespace="IMAGINE" Name="Bool"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="Orientation">
+			<Data>
+				<JsonValue>0</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionX">
+			<Data>
+				<JsonValue>682</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionY">
+			<Data>
+				<JsonValue>328</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+	</Operator>
+	<Operator Namespace="IMAGINE" Name="CreateTempFilename">
+		<DisplayName>Create Temp Filename</DisplayName>
+		<Port Name="Extension">
+			<DisplayName>Extension</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Port Name="Filename">
+			<DisplayName>Filename</DisplayName>
+			<Description></Description>
+			<Input>false</Input>
+			<Output>true</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Connections ParentPort="Filename" ChildDisplayName="Image Segmentation FLS" ChildPort="OutputImgFileIn"/>
+		<Attribute Name="FlowControl">
+			<Data>
+				<JsonValue>false</JsonValue>
+				<Type Namespace="IMAGINE" Name="Bool"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="Orientation">
+			<Data>
+				<JsonValue>0</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionX">
+			<Data>
+				<JsonValue>144</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionY">
+			<Data>
+				<JsonValue>360</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+	</Operator>
+	<Operator Namespace="IMAGINE" Name="ImageSegmentationFLS">
+		<DisplayName>Image Segmentation FLS</DisplayName>
+		<Port Name="InputFile">
+			<DisplayName>InputFile</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+			<Data>
+				<JsonValue>&quot;h:/2017_3_inch_samples/o13912_sw.tif&quot;</JsonValue>
+				<Type Namespace="IMAGINE" Name="File"/>
+			</Data>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;1&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="OutputImgFileIn">
+			<DisplayName>OutputImgFileIn</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;2&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="OutputImgFileOut">
+			<DisplayName>OutputImgFileOut</DisplayName>
+			<Description></Description>
+			<Input>false</Input>
+			<Output>true</Output>
+			<Hidden>false</Hidden>
+			<Attribute Name="DeleteOutput">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="PortLink">
+				<Data>
+					<JsonValue>&quot;OutputImgFileIn&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="ZonalFile">
+			<DisplayName>ZonalFile</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-zonal 1&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;3&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="ScaleFactor">
+			<DisplayName>ScaleFactor</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-scale&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;4&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="ScaleFactorMin">
+			<DisplayName>ScaleFactorMin</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-scalemin&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;5&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="ScaleFactorMax">
+			<DisplayName>ScaleFactorMax</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-scalemax&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;6&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="SpectralFactor">
+			<DisplayName>SpectralFactor</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-spectral&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;7&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="TextureFactor">
+			<DisplayName>TextureFactor</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-texture&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;8&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="ShapeFactor">
+			<DisplayName>ShapeFactor</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-shape&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;9&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="SizeFactor">
+			<DisplayName>SizeFactor</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-size&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;10&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="MinSegSize">
+			<DisplayName>MinSegSize</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-min&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;11&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="MaxSegSize">
+			<DisplayName>MaxSegSize</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-max&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;12&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="MaxTileSize">
+			<DisplayName>MaxTileSize</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-maxpixels&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;13&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="EnableRandomColor">
+			<DisplayName>EnableRandomColor</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-randomcolor&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;14&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Port Name="AOIFileName">
+			<DisplayName>AOIFileName</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Attribute Name="Argument">
+				<Data>
+					<JsonValue>&quot;-aoi&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupID">
+				<Data>
+					<JsonValue>&quot;15&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="GroupOptional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+			<Attribute Name="Optional">
+				<Data>
+					<JsonValue>&quot;True&quot;</JsonValue>
+					<Type Namespace="IMAGINE" Name="String"/>
+				</Data>
+			</Attribute>
+		</Port>
+		<Connections ParentDisplayName="Create Temp Filename" ParentPort="Filename" ChildPort="OutputImgFileIn"/>
+		<Connections ParentPort="OutputImgFileOut" ChildDisplayName="Convert To Raster" ChildPort="Input"/>
+		<Parents>Create Temp Filename</Parents>
+		<Attribute Name="Executable">
+			<Data>
+				<JsonValue>&quot;imagesegmentation_fls.exe&quot;</JsonValue>
+				<Type Namespace="IMAGINE" Name="String"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="ExtraArgs">
+			<Data>
+				<JsonValue>&quot;-meter;&quot;</JsonValue>
+				<Type Namespace="IMAGINE" Name="String"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="FlowControl">
+			<Data>
+				<JsonValue>false</JsonValue>
+				<Type Namespace="IMAGINE" Name="Bool"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="Orientation">
+			<Data>
+				<JsonValue>0</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionX">
+			<Data>
+				<JsonValue>397</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionY">
+			<Data>
+				<JsonValue>329</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+	</Operator>
+	<Operator Namespace="IMAGINE" Name="RasterOutput">
+		<DisplayName>Raster Output</DisplayName>
+		<Port Name="RasterIn">
+			<DisplayName>RasterIn</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Port Name="FilenameIn">
+			<DisplayName>FilenameIn</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+			<Data>
+				<JsonValue>&quot;h:/2017_3_inch_samples/o13912_sw_seg4.img&quot;</JsonValue>
+				<Type Namespace="IMAGINE" Name="File"/>
+			</Data>
+		</Port>
+		<Port Name="PixelType">
+			<DisplayName>PixelType</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Port Name="BlockWidth">
+			<DisplayName>BlockWidth</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="BlockHeight">
+			<DisplayName>BlockHeight</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="Thematicity">
+			<DisplayName>Thematicity</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+			<Data>
+				<JsonValue>&quot;Same as Input&quot;</JsonValue>
+				<Type Namespace="IMAGINE" Name="Thematicity"/>
+			</Data>
+		</Port>
+		<Port Name="ComputePyramids">
+			<DisplayName>ComputePyramids</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="NoDataValue">
+			<DisplayName>NoDataValue</DisplayName>
+			<Description></Description>
+			<Input>true</Input>
+			<Output>false</Output>
+			<Hidden>true</Hidden>
+		</Port>
+		<Port Name="RasterOut">
+			<DisplayName>RasterOut</DisplayName>
+			<Description></Description>
+			<Input>false</Input>
+			<Output>true</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Port Name="FilenameOut">
+			<DisplayName>FilenameOut</DisplayName>
+			<Description></Description>
+			<Input>false</Input>
+			<Output>true</Output>
+			<Hidden>false</Hidden>
+		</Port>
+		<Connections ParentDisplayName="Convert To Raster" ParentPort="Raster" ChildPort="RasterIn"/>
+		<Parents>Convert To Raster</Parents>
+		<Attribute Name="FlowControl">
+			<Data>
+				<JsonValue>false</JsonValue>
+				<Type Namespace="IMAGINE" Name="Bool"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="Orientation">
+			<Data>
+				<JsonValue>0</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionX">
+			<Data>
+				<JsonValue>946</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+		<Attribute Name="PositionY">
+			<Data>
+				<JsonValue>369</JsonValue>
+				<Type Namespace="IMAGINE" Name="Int"/>
+			</Data>
+		</Attribute>
+	</Operator>
+</Solution>
